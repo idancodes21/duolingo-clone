@@ -1,18 +1,19 @@
+import LottieAnimation from "@/components/LottieAnimation";
 import { Text, View } from "react-native";
+
+import welcomeAnimation from "../assets/onboarding-welcome.json";
 
 export default function Index() {
   return (
     <View className="flex-1 items-center justify-center bg-white px-6">
-      <Text className="font-nunito-extrabold text-3xl text-green-500">
-        Welcome to Duolingo!
+      <LottieAnimation source={welcomeAnimation} size={300} />
+
+      <Text className="mt-6 text-center font-nunito-extrabold text-3xl">
+        Learn a little every day!
       </Text>
 
-      <Text className="mt-4 font-nunito-regular text-lg text-gray-600">
-        Learn a little every day.
-      </Text>
-
-      <Text className="mt-4 font-nunito-semibold text-base text-gray-800">
-        Let's get started!
+      <Text className="mt-3 text-center font-nunito-regular text-base text-gray-600">
+        Make learning fun, one lesson at a time.
       </Text>
     </View>
   );
