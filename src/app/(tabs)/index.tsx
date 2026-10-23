@@ -1,9 +1,11 @@
 import LearnTopBar from "@/components/LearnTopBar";
 import Lesson from "@/components/Lesson";
+import LottieAnimation from "@/components/LottieAnimation";
 import Section from "@/components/Section";
 import { BookOpen, House, Shield, Store, UserRound } from "lucide-react-native";
 import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import DuoWaving from "../../assets/duo-waving.json";
 
 function LessonPath() {
   return (
@@ -19,13 +21,13 @@ function LessonPath() {
       </View>
 
       {/* Treasure chest */}
-      <View className="mb-6 ml-8">
+      <View className="mb-6 me-20 pr-20">
         <Lesson variant="chest" />
       </View>
 
       {/* Owl mascot placeholder */}
-      <View className="mb-6 -ml-12 h-20 w-20 items-center justify-center">
-        <Text className="text-6xl">🦉</Text>
+      <View className="mb-6 pb-20 h-20 w-20 items-start justify-center">
+        <LottieAnimation source={DuoWaving} size={200} />
       </View>
 
       {/* Listening lesson */}
