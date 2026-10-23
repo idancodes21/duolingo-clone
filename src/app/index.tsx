@@ -1,4 +1,5 @@
 import LottieAnimation from "@/components/LottieAnimation";
+import { Link } from "expo-router";
 import { Image, Pressable, Text, View } from "react-native";
 import welcomeAnimation from "../assets/onboarding-welcome.json";
 
@@ -23,15 +24,19 @@ export default function Index() {
         The most fun way to learn languages, chess, and more!
       </Text>
 
-      <Pressable className="mt-10 w-full items-center justify-center rounded-xl border-b-4 border-[#46A302] bg-[#58CC02] py-4">
-        <Text className="font-nunito-extrabold text-white">GET STARTED</Text>
-      </Pressable>
+      <Link href="/(tabs)" asChild>
+        <Pressable className="mt-10 w-full items-center justify-center rounded-xl border-b-4 border-[#46A302] bg-[#58CC02] py-4">
+          <Text className="font-nunito-extrabold text-white">GET STARTED</Text>
+        </Pressable>
+      </Link>
 
-      <Pressable className="mt-2 w-full items-center justify-center rounded-xl border-2 border-[#E5E5E5] bg-white py-4">
-        <Text className="font-nunito-extrabold text-[#1CB0F6]">
-          ALREADY HAVE AN ACCOUNT
-        </Text>
-      </Pressable>
+      <Link href="/onboarding" asChild>
+        <Pressable className="mt-2 w-full items-center justify-center rounded-xl border-2 border-[#E5E5E5] bg-white py-4">
+          <Text className="font-nunito-extrabold text-[#1CB0F6]">
+            ALREADY HAVE AN ACCOUNT
+          </Text>
+        </Pressable>
+      </Link>
     </View>
   );
 }
