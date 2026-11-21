@@ -1,56 +1,94 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A language-learning app UI built with React Native, inspired by the gamified lesson-path style of popular learning apps. This is a **design and front-end practice project**: the screens are fully styled and animated, and the data is mocked for now.
 
-## Get started
+> Not affiliated with, endorsed by, or connected to Duolingo. Built purely for learning and portfolio purposes.
 
-1. Install dependencies
+## Screenshots
 
-   ```bash
-   npm install
-   ```
+The app isn't published on the Play Store or App Store yet, so here's how it looks running.
 
-2. Start the app
+| Onboarding | Learn | Leaderboard |
+| :---: | :---: | :---: |
+| <img src="docs/screenshots/onboarding.png" width="220" alt="Onboarding screen" /> | <img src="docs/screenshots/learn.png" width="220" alt="Learn screen with the lesson path" /> | <img src="docs/screenshots/leaderboard.png" width="220" alt="League leaderboard with promotion and demotion zones" /> |
 
-   ```bash
-   npx expo start
-   ```
+## Features
 
-In the output, you'll find options to open the app in a
+**Onboarding**
+- Onboarding flow for new users before they reach the Learn screen
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+**Learn**
+- Zigzag lesson path generated from data, one list of nodes per unit
+- Lesson nodes with a 3D press effect: active, locked, chest, headphones and trophy variants
+- Floating, bouncing "Start" label on the active lesson
+- Fixed banner that changes color and text per unit as you scroll, with a smooth color tween and text fade
+- Unit dividers and a Lottie mascot at each unit, configurable per unit
+- Current unit detected from measured layout, not hardcoded scroll offsets
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+**Leaderboard**
+- League header with earned, current and locked league badges
+- Ranked player list with gold, silver and bronze medals
+- Promotion and demotion zones, with dividers computed from the data
+- Highlighted row for the current user
 
-## Get a fresh project
+## Tech stack
 
-When you're ready, run:
+- React Native
+- TypeScript
+- NativeWind (Tailwind CSS for React Native)
+- lucide-react-native for icons
+- lottie-react-native for mascot animations
+- react-native-safe-area-context
 
-```bash
-npm run reset-project
+## Project structure
+
+```
+assets/
+  duo-waving.json            # mascot Lottie animation(s)
+components/
+  Lesson.tsx                 # lesson node (active, locked, chest, ...)
+  UnitBanner.tsx             # animated fixed banner
+  LearnTopBar.tsx
+  BottomNavigation.tsx
+  leaderboard/
+    LeagueBadge.tsx
+    LeagueHeader.tsx
+    ZoneDivider.tsx
+    Rank.tsx
+    PlayerRow.tsx
+utils/
+  units.ts                   # unit colors, descriptions, path items
+  leaderboard.ts             # mock leagues and players, getZone helper
+docs/
+  screenshots/               # images used in this README
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Getting started
 
-### Other setup steps
+```bash
+# install dependencies
+npm install
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+# start the dev server (adjust if you use a different workflow)
+npx expo start
+```
 
-## Learn more
+Then press `a` for an Android emulator, `i` for the iOS simulator, or scan the QR code with Expo Go on your phone.
 
-To learn more about developing your project with Expo, look at the following resources:
+## Customizing
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- **Add a unit:** add an object to `utils/units.ts` with a color, description, mascot animation key and a list of path items.
+- **Change the mascot per unit:** add a Lottie file under `assets/`, import it in the Learn screen, and map its key in `ANIMATIONS`.
+- **Preview other leagues:** change `CURRENT_LEAGUE`, `PROMOTION_COUNT` and `DEMOTION_COUNT` in `utils/leaderboard.ts`.
 
-## Join the community
+## Roadmap
 
-Join our community of developers creating universal apps.
+- [ ] Completed state and unit-colored nodes
+- [ ] Progress ring on the active lesson
+- [ ] Tooltip with a Start button when tapping a lesson
+- [ ] Real lesson screen (questions, hearts, XP)
+- [ ] Backend for progress and leaderboard data
+- [ ] Quests, Shop and Profile screens
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Disclaimer
+
+This project is for educational purposes only. All trademarks and brand names belong to their respective owners. Check the license of any third-party animation or asset before publishing.
