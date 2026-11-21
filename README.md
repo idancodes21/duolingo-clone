@@ -1,11 +1,9 @@
 
-A language-learning app UI built with React Native, inspired by the gamified lesson-path style of popular learning apps. This is a **design and front-end practice project**: the screens are fully styled and animated, and the data is mocked for now.
+Duolingo clone built with React Native and Expo. This is a **design and front-end practice project**: the screens are fully styled and animated, and the data is mocked for now.
 
 > Not affiliated with, endorsed by, or connected to Duolingo. Built purely for learning and portfolio purposes.
 
 ## Screenshots
-
-The app isn't published on the Play Store or App Store yet, so here's how it looks running.
 
 | Onboarding | Learn | Leaderboard |
 | :---: | :---: | :---: |
